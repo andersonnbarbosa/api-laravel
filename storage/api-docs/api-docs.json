@@ -1,0 +1,245 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Arcticle API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/arcticles": {
+            "get": {
+                "tags": [
+                    "Arcticle"
+                ],
+                "summary": "Get all arcticle in database",
+                "operationId": "7479fff60a65c90c3fa7f9afa7d60138",
+                "responses": {
+                    "200": {
+                        "description": "Return all arcticles stored"
+                    }
+                }
+            }
+        },
+        "/api/arcticle/{id}": {
+            "get": {
+                "tags": [
+                    "Arcticle"
+                ],
+                "summary": "Get arcticle by id",
+                "operationId": "db492d78f3a8bdac66694ed523cb2dab",
+                "responses": {
+                    "200": {
+                        "description": "Arcticle corresponding to returned"
+                    }
+                }
+            }
+        },
+        "/api/arcticle/create": {
+            "post": {
+                "tags": [
+                    "Arcticle"
+                ],
+                "summary": "Add a new arcticle in database",
+                "operationId": "57dae80c8d3c863fea84e97d0e5ad45d",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "url": {
+                                        "type": "string"
+                                    },
+                                    "imageUrl": {
+                                        "type": "string"
+                                    },
+                                    "newsSite": {
+                                        "type": "string"
+                                    },
+                                    "summary": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/arcticle/edit/{id}": {
+            "put": {
+                "tags": [
+                    "Arcticle"
+                ],
+                "summary": "Updates a arcticle in database",
+                "operationId": "e89204c54d21325a54eb78eec572d3eb",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of arcticle to update",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/arcticle/delete/{id}": {
+            "delete": {
+                "tags": [
+                    "Arcticle"
+                ],
+                "summary": "Delete a arcticle in database by id",
+                "operationId": "e6b39e8e00a4946d0f3a695950f84262",
+                "responses": {
+                    "200": {
+                        "description": "Return all arcticles stored"
+                    }
+                }
+            }
+        },
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Authenticate in API",
+                "operationId": "a3b306d14572d1f4bd6c064b3233e7b8",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Return user corresponding and bearer token"
+                    }
+                }
+            }
+        },
+        "/api/register": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Register new user",
+                "operationId": "8a56853624e025573120a09a4c75d468",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Return user registered and bearer token"
+                    }
+                }
+            }
+        },
+        "/api/logout": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Logout user by bearer token",
+                "operationId": "fe8f3429cd6979b3b4517e186505f9f9",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "__token": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/refresh": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Generate a new token",
+                "operationId": "2c27d311a2876560fcb5a754b556cdc5",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "__token": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Return new bearer token"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "name": "bearerAuth",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    }
+}
