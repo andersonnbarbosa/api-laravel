@@ -66,4 +66,4 @@ php artisan migrate:fresh
 
 
 Acesse o projeto
-[http://localhost:8989](http://localhost:8989)
+[http://localhost:8989/api/documentation](http://localhost:8989/api/documentation)
