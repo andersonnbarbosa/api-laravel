@@ -73,13 +73,13 @@
                 }
             }
         },
-        "/api/arcticle/edit/{id}": {
+        "/api/arcticle/update/{id}": {
             "put": {
                 "tags": [
                     "Arcticle"
                 ],
                 "summary": "Updates a arcticle in database",
-                "operationId": "e89204c54d21325a54eb78eec572d3eb",
+                "operationId": "d3913f6b027e7257310cd5ba408d0084",
                 "parameters": [
                     {
                         "name": "id",

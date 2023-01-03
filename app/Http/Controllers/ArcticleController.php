@@ -24,7 +24,7 @@ class ArcticleController extends Controller
      *     )
      * )
      */
-    public function getArcticle()
+    public static function getArcticle()
     {
 
        $arcticles = Arcticle::all();
@@ -88,7 +88,7 @@ class ArcticleController extends Controller
     public function insertArcticle(Request $request)
     {
         $arcticle = new Arcticle();
-        $arcticle-> id_api = null;
+        $arcticle-> id_api = 0;
         $arcticle-> title = $request->title;
         $arcticle-> url = $request->url;
         $arcticle-> imageUrl = $request->imageUrl;
@@ -111,7 +111,7 @@ class ArcticleController extends Controller
 
      /**
      * @OA\Put(
-     *     path="/api/arcticle/edit/{id}",
+     *     path="/api/arcticle/update/{id}",
      *     summary="Updates a arcticle in database",
      *     tags={"Arcticle"},
      *     @OA\Parameter(
