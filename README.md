@@ -2,7 +2,7 @@
 ### Passo a passo
 Clone Repositório
 ```sh
-git clone https://github.com/andersonnbarbosa/app-laravel my-project
+git clone https://github.com/andersonnbarbosa/api-laravel my-project
 ```
 ```sh
 cd my-project/
